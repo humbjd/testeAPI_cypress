@@ -1,5 +1,8 @@
 describe('API - Profile', () => {
 
+    let urlPerfis = 'api/profile'    
+
+    // DRY - Don't Repeat Yourself
     context('Todos os perfis', () => {
         it('Valida a API de perfis', () => {
             
@@ -7,7 +10,7 @@ describe('API - Profile', () => {
 
             cy.request({
                 method: 'GET', // chama a API
-                url: '/api/profile' // acessa a url
+                url: urlPerfis // acessa a url
             }).then(respostaAPI => {
                 expect(respostaAPI.status).to.eq(200) // verifica o status
                 // verifica o tempo de resposta da API se é menos de 10 segundos no caso
@@ -23,11 +26,13 @@ describe('API - Profile', () => {
     })
 
     context('Perfil específico', () => {
+
+        let urlPerfil = '/api/profile/user'
         
         it.only('seleciona um usuário inválido', () => {
             cy.request({
                 method:'GET',
-                url:'/api/profile/user/1', 
+                url:`${urlPerfil}/1`, 
                 failOnStatusCode: false
             }).then(respostaAPI => {
                 expect(respostaAPI.status).to.eq(404)
@@ -41,7 +46,7 @@ describe('API - Profile', () => {
 
             cy.request({
                 method: 'GET',
-                url: `/api/profile/user/${usuarioId}`
+                url: `${urlPerfil}/${usuarioId}`
             }).then(respostaAPI => {
                 expect(respostaAPI.status).to.eq(200)
                 expect(respostaAPI.body.user.name).to.eq('Pedro Guerra')
@@ -54,12 +59,12 @@ describe('API - Profile', () => {
             
             cy.request({
                 method: 'GET',
-                url: '/api/profile'
+                url: urlPerfis
             }).then(({ body }) => {
                 
                 cy.request({
                     method: 'GET',
-                    url: `/api/profile/user/${body[1].user._id}`
+                    url: `${urlPerfil}/${body[1].user._id}`
                 }).then(({ status, body }) => {
                     expect(status).to.eq(200)
                     expect(body.status).to.eq('Outro')
