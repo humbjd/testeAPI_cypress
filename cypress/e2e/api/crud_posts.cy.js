@@ -8,6 +8,8 @@ describe('CRUD - Posts', () => {
 
     before(() => {
         
+        cy.login(Cypress.env('email'), Cypress.env('password'))
+
         cy.request({
             method: 'POST',
             url: '/api/auth',
@@ -73,7 +75,7 @@ describe('CRUD - Posts', () => {
         cy.request({
             method: 'DELETE',
             url: `/api/posts/${postId}`
-        }).then(({ status }) => {
+        }).then(({ status, body }) => {
             expect(status).to.eq(200)
             expect(body.msg).to.eq('Post removido')
 

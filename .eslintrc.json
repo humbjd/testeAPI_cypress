@@ -14,7 +14,7 @@
     ],
     "rules": {
         "camelcase": "error",
-        "indent": ["error", 4, { "SwitchCase": 1 }],
+        //"indent": ["error", 8, { "SwitchCase": 1 }],
         "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 0 }],
         "operator-assignment": ["error", "always"],
         "space-infix-ops": "error",

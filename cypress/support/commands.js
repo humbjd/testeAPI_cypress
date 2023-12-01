@@ -1,3 +1,34 @@
+import Ajv from "ajv"
+
+Cypress.Commands.add('login', (email, password) => {
+
+    cy.login()
+
+        cy.request({
+            method: 'POST',
+            url: '/api/auth',
+            body: {
+                email: email,
+                password: password
+            }
+        }).then(() => {
+
+            Cypress.Cookies.defaults({
+                preserve: 'jwt'
+            })
+        })
+    })
+
+Cypress.Commands.add('testeContrato', () => {
+
+    // Função que mostra os erros
+    const getSchemaError = (ajvErros) => {
+        return cy.wrap(
+            `Campo: ${ajvErros[0]['instancePath']} é inválido. Erro: ${ajvErros[0]['message']}`
+        )
+    }
+})
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
