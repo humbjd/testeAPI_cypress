@@ -2,3 +2,4 @@
 /cypress/videos
 /cypress/screeshots
 /cypress/downloads
+cypress.env.json
