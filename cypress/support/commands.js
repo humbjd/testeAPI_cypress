@@ -1,6 +1,7 @@
 import Ajv from 'ajv'
 import { definitionHelper } from '../utils/schemaDefinitions'
 
+// Loga na aplicação via API
 Cypress.Commands.add('login', (email, password) => {
 
     cy.login()
@@ -20,6 +21,7 @@ Cypress.Commands.add('login', (email, password) => {
         })
     })
 
+// Executa teste de contrato em uma API
 Cypress.Commands.add('testeContrato', (schema, resposta) => {
 
     // Função que mostra os erros
@@ -45,28 +47,7 @@ Cypress.Commands.add('testeContrato', (schema, resposta) => {
 
 })
 
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// Seleciona um elemento pelo atributo data-test
+Cypress.Commands.add('getElement', (seletor) => {
+    return cy.get(`[data-test=${seletor}]`)
+})
