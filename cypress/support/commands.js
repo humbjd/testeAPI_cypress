@@ -1,5 +1,5 @@
-import Ajv from "ajv"
-import { definitionHelper } from "../utils/schemaDefinitions"
+import Ajv from 'ajv'
+import { definitionHelper } from '../utils/schemaDefinitions'
 
 Cypress.Commands.add('login', (email, password) => {
 
