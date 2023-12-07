@@ -31,7 +31,7 @@ describe('página inicial', () => {
             .click()
     })
 
-    it.only('seleciona um elemento com find', () => {
+    it.only('seleciona um elemento com find', { tags: '@smoke' }, () => {
         
         cy.get('.landing-inner')
             .find('h1')
