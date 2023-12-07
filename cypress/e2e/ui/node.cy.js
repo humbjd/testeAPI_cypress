@@ -18,7 +18,7 @@ describe('Testes do cypress .config.js', () => {
         cy.task('conectarMongo')
         
         // .then(resultadoDaQuery => {
-        //    expect(resultadoDaQuery[0].name.to.eq('Humberto))
+        //    expect(resultadoDaQuery[0].name).to.eq('Humberto)
         // })
     })
 })

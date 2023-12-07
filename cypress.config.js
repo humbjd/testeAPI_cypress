@@ -18,7 +18,8 @@ module.exports = defineConfig({
                     return fs.readdirSync(caminho).length
                 },
                 
-                conectarMongo() {
+                conectarMongo(usuarioId) {
+
                     try {
                         // faça o que está aqui e se der erro, faça o que está no catch
                         mongoose.connect(config.env.enderecoBanco, {
@@ -29,12 +30,13 @@ module.exports = defineConfig({
                         })
                         
                         console.log('Conexão estabelecida com o banco de dados')
+                        console.log(usuarioId)
                         
                         // fazer o select
-                        const resultado = mongoose.select('select * from users')
+                        // const resultado = mongoose.select('select * from users where usuarioId = ${usuarioId}')
 
-                        return resultado
-                        
+                        // return resultado
+
                     } catch (err) {
                         console.log(err)
                     }
