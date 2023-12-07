@@ -42,7 +42,7 @@ describe('cabeçalho da página home', () => {
                 .and('not.have.attr', 'target', '_blank')
         })
 
-        it.skip('valida o cabeçalho utilizando object', () => {
+        it('valida o cabeçalho utilizando object', () => {
             
             const menus = [
                 { seletor: 'navbar-conexaoQA', link: '/' },
@@ -59,7 +59,7 @@ describe('cabeçalho da página home', () => {
         })
 
         ;[
-            { seletor: 'navbar-conexaoQA', link: '/', menu: ' ConexãoQA' },
+            { seletor: 'navbar-conexaoQA', link: '/', menu: 'ConexãoQA' },
             { seletor: 'navbar-QAs', link: '/perfis', menu: 'QAs' },
             { seletor: 'navbar-about', link: '/sobre', menu: 'Sobre' },
             { seletor: 'navbar-register', link: '/cadastrar', menu: 'Cadastrar' },
@@ -90,7 +90,7 @@ describe('cabeçalho da página home', () => {
         })
 
         ;[
-            { seletor: 'navbar-conexaoQA', link: '/', menu: ' ConexãoQA' },
+            { seletor: 'navbar-conexaoQA', link: '/', menu: 'ConexãoQA' },
             { seletor: 'navbar-QAs', link: '/perfis', menu: 'QAs' },
             { seletor: 'navbar-posts', link: '/posts', menu: 'Posts' },
             { seletor: 'navbar-dashboard', link: '/dashboard', menu: ' Dashboard' },
